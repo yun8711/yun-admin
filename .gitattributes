@@ -1,0 +1,18 @@
+# 指定所有.ts类型的文件不可被Linguist识别
+# *.ts linguist-detectable=false
+# 指定所有test文件夹下的.js文件的语言类型为Vue
+# test/**/*.js linguist-language=Vue
+
+* text=auto eol=lf
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+*.zip filter=lfs diff=lfs merge=lfs -text
