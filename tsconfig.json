@@ -38,15 +38,13 @@
     "lib": ["ESNext", "DOM"],
     // 路径别名
     "paths": {
-      "@/*": ["src/*"],
-      "@build/*": ["build/*"]
+      "@/*": ["src/*"]
     },
     // 指定要包含的类型文件
     "types": [
       "node",
       "vite/client",
-      "element-plus/global",
-      "types/**/*.d.ts"
+      "element-plus/global"
       //      "@pureadmin/table/volar",
       //      "@pureadmin/descriptions/volar"
     ]

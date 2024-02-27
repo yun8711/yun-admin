@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import presetRemToPx from "@unocss/preset-rem-to-px";
 import { FileSystemIconLoader } from "@iconify/utils/lib/loader/node-loaders";
 
-const iconDirectory = resolve(__dirname, "icons");
+const iconDirectory = resolve(__dirname, "src/assets/icons");
 
 export default defineConfig({
   // ...UnoCSS options
