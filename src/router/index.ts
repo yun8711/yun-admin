@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import App from "../App.vue";
+import Layout from "@/layouts/index.vue";
+// import MixedLayout from "@/layouts/mixed-layout/index.vue";
+// import TopNavLayout from "@/layouts/top-nav-layout/index.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,16 +9,26 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: App,
+      component: Layout,
+      redirect: "/test",
+      children: [
+        {
+          path: "test",
+          name: "TestPage",
+          component: () => import("@/views/test-page/index.vue"),
+        },
+      ],
     },
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import("../views/AboutView.vue"),
-    // },
+    {
+      path: "/login",
+      name: "LoginPage",
+      component: () => import("../views/login-page/index.vue"),
+    },
+    {
+      path: "/home",
+      name: "HomePage",
+      component: () => import("../views/home-page/index.vue"),
+    },
   ],
 });
 
