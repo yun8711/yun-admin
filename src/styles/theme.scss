@@ -1,0 +1,23 @@
+// 组件库样式定义
+:root {
+  // 主题色
+  --primary-color: #365edf;
+  --primary-hover: #5e7ee5;
+  --primary-active: #2b4bb2;
+  --primary-disabled: #eaeefb;
+  --primary-suspension: #f5f7fd; // 悬浮
+  // 文本颜色
+  --text-title: rgb(39 48 75 / 85%); // 标题文字
+  --text-color: rgb(39 48 75 / 65%); // 正文文字
+  --text-secondary: rgb(39 48 75 / 45%); // 辅助、说明文字
+  --text-disabled: rgb(39 48 75 / 25%); // 禁用，提示文字
+  // 其他颜色
+  --line-border: #dcdcdc; // 线框
+  --line-split: #e3e6e8; // 分割线
+  --table-header-bg: #f7f8fa; // 表格表头背景色
+  // --table-hover-bg: #f7f8fa; // 表格hover背景
+  // 语义色
+  // --success-color:#30BD82;
+  //--warning-color:#FFB51F;
+  //--danger-color:#E94C35;
+}
