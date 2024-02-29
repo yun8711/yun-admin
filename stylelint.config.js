@@ -26,6 +26,7 @@ export default {
     "no-descending-specificity": null,
     "scss/dollar-variable-pattern": null,
     "scss/double-slash-comment-whitespace-inside": null,
+    "scss/comment-no-empty": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {
@@ -55,6 +56,7 @@ export default {
           "include",
           "mixin",
           "use",
+          "forward",
         ],
       },
     ],

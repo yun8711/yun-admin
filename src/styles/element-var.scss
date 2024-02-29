@@ -1,11 +1,104 @@
 // 覆盖element-plus组件库的变量
-:root {
-  --el-color-primary: var(--primary-color);
-  --el-text-color-primary: var(--text-color);
-  --el-text-color-regular: var(--text-color);
+//:root {
+//  --el-color-primary: var(--primary-color);
+//  --el-text-color-primary: var(--text-color);
+//  --el-text-color-regular: var(--text-color);
+//
+//  // 输入框文字颜色
+//  // --el-input-text-color: var(--text-color);
+//  // 基础输入框边框圆角
+//  --el-border-radius-base: 0px;
+//}
 
-  // 输入框文字颜色
-  // --el-input-text-color: var(--text-color);
-  // 基础输入框边框圆角
-  --el-border-radius-base: 0px;
-}
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  //主题色
+  $colors:
+    (
+      "primary": (
+        "base": #0064c8,
+      ),
+      "success": (
+        "base": #32c832,
+      ),
+      "warning": (
+        "base": #fac800,
+      ),
+      //'danger': (
+      //  'base': #f56c6c,
+      //),
+      "error":
+        (
+          "base": #d77a7a,
+        ),
+      //'info': (
+      //  'base': #909399,
+      //),
+    ),
+
+  //文字颜色
+  $text-color:
+    (
+      "primary": #303133,
+      "regular": #606266,
+      "secondary": #909399,
+      "placeholder": #a8abb2,
+      "disabled": #c0c4cc
+    ),
+
+  //边框颜色
+  $border-color:
+    (
+      "": #dcdfe6,
+      "light": #e4e7ed,
+      "lighter": #ebeef5,
+      "extra-light": #f2f6fc,
+      "dark": #d4d7de,
+      "darker": #cdd0d6
+    ),
+
+  //填充颜色
+  $fill-color:
+    (
+      "": #f0f2f5,
+      "light": #f5f7fa,
+      "lighter": #fafafa,
+      "extra-light": #fafcff,
+      "dark": #ebedf0,
+      "darker": #e6e8eb,
+      "blank": #ffffff
+    ),
+
+  //背景颜色
+  //$bg-color: ("": #ffffff, "page": #f2f3f5, "overlay": #ffffff),
+  //边框圆角
+  $border-radius: ("base": 1px, "small": 0, "round": 20px, "circle": 100%),
+  //阴影
+  //$box-shadow:
+  //  (
+  //    "": (
+  //      0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+  //      0px 8px 20px rgba(0, 0, 0, 0.08),
+  //    ),
+  //    "light": (
+  //      0px 0px 12px rgba(0, 0, 0, 0.12),
+  //    ),
+  //    "lighter": (
+  //      0px 0px 6px rgba(0, 0, 0, 0.12),
+  //    ),
+  //    "dark": (
+  //      0px 16px 48px 16px rgba(0, 0, 0, 0.08),
+  //      0px 12px 32px rgba(0, 0, 0, 0.12),
+  //      0px 8px 16px -8px rgba(0, 0, 0, 0.16),
+  //    )
+  //  ),
+  //字体大小
+  //$font-size:
+  //(
+  //  'extra-large': 20px,
+  //  'large': 18px,
+  //  'medium': 16px,
+  //  'base': 14px,
+  //  'small': 13px,
+  //  'extra-small': 12px,
+  //),
+);
