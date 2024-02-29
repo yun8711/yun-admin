@@ -24,7 +24,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@unocss/reset": "^0.58.5",
+    "animate.css": "^4.1.1",
     "dayjs": "^1.11.10",
     "element-plus": "^2.5.6",
     "lodash-es": "^4.17.21",
@@ -69,6 +71,7 @@
     "typescript": "^5.3.3",
     "unocss": "^0.58.5",
     "unplugin-auto-import": "^0.17.5",
+    "unplugin-icons": "^0.18.5",
     "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-setup-extend-plus": "^1.0.1",
     "vite": "^5.0.12",

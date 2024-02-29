@@ -27,6 +27,7 @@ export default {
     "scss/dollar-variable-pattern": null,
     "scss/double-slash-comment-whitespace-inside": null,
     "scss/comment-no-empty": null,
+    "function-no-unknown": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {

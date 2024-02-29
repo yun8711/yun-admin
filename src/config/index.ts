@@ -34,7 +34,7 @@ const getConfig = (key?: string): PlatformConfigs => {
 };
 
 /** 获取项目动态全局配置 */
-export const getPlatformConfig = async (app: App): Promise<undefined> => {
+const getPlatformConfig = async (app: App): Promise<undefined> => {
   app.config.globalProperties.$config = getConfig();
   // fetch发送请求获取，也可以使用axios
   return fetch(`${VITE_PUBLIC_PATH}platform-config.json`)
@@ -59,3 +59,5 @@ export const getPlatformConfig = async (app: App): Promise<undefined> => {
       throw new Error("请在public文件夹下添加platform-config.json配置文件");
     });
 };
+
+export { getConfig, setConfig, getPlatformConfig };

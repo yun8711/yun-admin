@@ -5,6 +5,8 @@ import VueJsx from "@vitejs/plugin-vue-jsx";
 import UnoCSS from "unocss/vite";
 import AutoImport from "unplugin-auto-import/vite"; // 模块自动按需导入
 import Components from "unplugin-vue-components/vite"; // 组件自动按需导入
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers"; // element-plus 组件自动按需导入解析器
 // import viteCompression from "vite-plugin-compression"; // 构建压缩插件
 import { visualizer } from "rollup-plugin-visualizer"; // 构建分析插件
@@ -44,18 +46,32 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       UnoCSS(),
       AutoImport({
         dts: "types/auto-imports.d.ts",
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          // 自动导入element-plus组件
+          ElementPlusResolver(),
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: "Icon",
+          }),
+        ],
         imports: ["vue", "vue-router", "pinia"],
       }),
       Components({
         dts: "types/components.d.ts",
         resolvers: [
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ["ep"],
+          }),
           ElementPlusResolver({
             importStyle: "sass",
           }),
         ],
         // 自动导入全局组件的位置
         dirs: ["src/components"],
+      }),
+      Icons({
+        autoInstall: true,
       }),
       // 创建打包压缩配置
       // viteCompression(),
