@@ -166,27 +166,35 @@ export default defineFlatConfig([
       "vue/require-explicit-emits": "off",
       "vue/multi-word-component-names": "off",
       "vue/no-setup-props-reactivity-loss": "off",
+      // 顶级元素的顺序
+      "vue/component-tags-order": [
+        "error",
+        {
+          order: ["template", "script", "style"], // 按习惯设置的顺序
+        },
+      ],
+      // "vue/singleline-html-element-content-newline": ["off"],
       // 标签自闭合配置
       "vue/html-self-closing": [
         "error",
         {
           html: {
             void: "always",
-            normal: "always",
-            component: "always",
+            normal: "never",
+            component: "never",
           },
           svg: "always",
           math: "always",
         },
       ],
       // 控制元素中第一个属性的位置
-      "vue/first-attribute-linebreak": [
-        "error",
-        {
-          singleline: "beside", // 单行时第一个属性不换行
-          multiline: "below", // 多行时第一个属性不换行
-        },
-      ],
+      // "vue/first-attribute-linebreak": [
+      //   "error",
+      //   {
+      //     singleline: "beside", // 单行时第一个属性不换行
+      //     multiline: "below", // 多行时第一个属性不换行
+      //   },
+      // ],
       // 元素有多属性时每行属性数量，单行时一行最多个，多行时每行1个，
       "vue/max-attributes-per-line": [
         "error",
@@ -197,13 +205,25 @@ export default defineFlatConfig([
           },
         },
       ],
-      // 顶级元素的顺序
-      "vue/component-tags-order": [
-        "error",
-        {
-          order: ["template", "script", "style"], // 按习惯设置的顺序
-        },
-      ],
+
+      // "vue/html-closing-bracket-newline": [
+      //   "error",
+      //   {
+      //     singleline: "never",
+      //     multiline: "never",
+      //   },
+      // ],
+      // "vue/html-indent": [
+      //   "error",
+      //   2,
+      //   {
+      //     attribute: 1,
+      //     baseIndent: 1,
+      //     closeBracket: 0,
+      //     alignAttributesVertically: true,
+      //     ignores: [],
+      //   },
+      // ],
     },
   },
 ]);

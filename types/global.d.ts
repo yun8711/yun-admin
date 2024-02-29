@@ -27,3 +27,32 @@ declare const __APP_INFO__: {
   };
   lastBuildTime: string;
 };
+
+/**
+ * 对应 `public/platform-config.json` 文件的类型声明
+ */
+interface PlatformConfigs {
+  Title?: string;
+}
+
+/* Menu */
+declare namespace Menu {
+  interface MenuOptions {
+    path: string;
+    name: string;
+    component?: string | (() => Promise<unknown>);
+    redirect?: string;
+    meta: MetaProps;
+    children?: MenuOptions[];
+  }
+  interface MetaProps {
+    icon: string;
+    title: string;
+    activeMenu?: string;
+    isLink?: string;
+    isHide: boolean;
+    isFull: boolean;
+    isAffix: boolean;
+    isKeepAlive: boolean;
+  }
+}

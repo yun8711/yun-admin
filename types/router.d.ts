@@ -18,8 +18,9 @@ declare global {
     icon?: string | FunctionalComponent | IconifyIcon;
     /** 菜单名称右侧的额外图标 */
     extraIcon?: string | FunctionalComponent | IconifyIcon;
-    /** 是否在菜单中显示（默认`true`）`可选` */
-    showLink?: boolean;
+    /** 是否隐藏菜单（默认`false`）`可选` */
+    hidden?: boolean;
+    // showLink?: boolean;
     /** 是否显示父级菜单 `可选` */
     showParent?: boolean;
     /** 页面级别权限设置 `可选` */
@@ -29,22 +30,22 @@ declare global {
     /** 路由组件缓存（开启 `true`、关闭 `false`）`可选` */
     keepAlive?: boolean;
     /** 内嵌的`iframe`链接 `可选` */
-    frameSrc?: string;
+    // frameSrc?: string;
     /** `iframe`页是否开启首次加载动画（默认`true`）`可选` */
-    frameLoading?: boolean;
+    // frameLoading?: boolean;
     /** 页面加载动画（两种模式，第二种权重更高，第一种直接采用`vue`内置的`transitions`动画，第二种是使用`animate.css`编写进、离场动画，平台更推荐使用第二种模式，已经内置了`animate.css`，直接写对应的动画名即可）`可选` */
-    transition?: {
-      /**
-       * @description 当前路由动画效果
-       * @see {@link https://next.router.vuejs.org/guide/advanced/transitions.html#transitions}
-       * @see animate.css {@link https://animate.style}
-       */
-      name?: string;
-      /** 进场动画 */
-      enterTransition?: string;
-      /** 离场动画 */
-      leaveTransition?: string;
-    };
+    // transition?: {
+    //   /**
+    //    * @description 当前路由动画效果
+    //    * @see {@link https://next.router.vuejs.org/guide/advanced/transitions.html#transitions}
+    //    * @see animate.css {@link https://animate.style}
+    //    */
+    //   name?: string;
+    //   /** 进场动画 */
+    //   enterTransition?: string;
+    //   /** 离场动画 */
+    //   leaveTransition?: string;
+    // };
     // 是否不添加信息到标签页，（默认`false`）
     hiddenTag?: boolean;
     /** 动态路由可打开的最大数量 `可选` */
