@@ -7,14 +7,17 @@ const iconDirectory = resolve(__dirname, "src/assets/icons");
 
 export default defineConfig({
   // ...UnoCSS options
-  // shortcuts: [
-  //   { logo: "i-ep:chrome-filled w-6em h-6em transform transition-800 bg-green border-1" },
-  // ],
+  shortcuts: [
+    // { logo: "i-ep:chrome-filled w-6em h-6em transform transition-800 bg-green border-1" },
+    // { page: "p-16" },
+  ],
   rules: [
     // ...your custom rules
-    [/^w-(\d+)$/, ([, d]) => ({ width: `${Number(d)}px` })],
-    [/^h-(\d+)$/, ([, d]) => ({ height: `${Number(d)}px` })],
-    [/^m-(\d+)$/, ([, d]) => ({ margin: `${Number(d)}px` })],
+    // [/^w-(\d+)$/, ([, d]) => ({ width: `${Number(d)}px` })],
+    // [/^h-(\d+)$/, ([, d]) => ({ height: `${Number(d)}px` })],
+    // [/^m-(\d+)$/, ([, d]) => ({ margin: `${Number(d)}px` })],
+    // [/^mb-(\d+)$/, ([, d]) => ({ "margin-bottom": `${Number(d)}px` })],
+    // [/^p-(\d+)$/, ([, d]) => ({ padding: `${Number(d)}px` })],
   ],
   presets: [
     presetUno(),

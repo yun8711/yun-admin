@@ -45,12 +45,13 @@
       "node",
       "vite/client",
       "element-plus/global",
-      "unplugin-icons/types/vue"
+      "unplugin-icons/types/vue",
+      "src/components/**/*.ts"
       //      "@pureadmin/table/volar",
       //      "@pureadmin/descriptions/volar"
     ]
   },
-  // 需要编辑的文件
+  // 需要编译的文件
   "include": [
     "mock/*.ts",
     "src/**/*.ts",
