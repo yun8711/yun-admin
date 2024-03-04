@@ -1,14 +1,17 @@
-import { createApp } from "vue";
-import { setupStore } from "@/store";
-import { getPlatformConfig } from "./config";
-import App from "./App.vue";
-import router from "./router";
-import "./styles/index.scss";
-import "virtual:uno.css";
+import { createApp } from 'vue';
+import { setupStore } from '@/stores';
+import { getPlatformConfig } from './config';
+import App from './App.vue';
+import router from './router';
+import './styles/index.scss';
+import 'virtual:uno.css';
+// 导入字体图标库
+import '@/assets/iconfont/iconfont.css';
+import '@/assets/iconfont/iconfont.js';
 const app = createApp(App);
 
 getPlatformConfig(app).then(async config => {
-  console.log("config", config);
+  console.log('config', config);
   // 先初始化store，再挂载路由，否则在路由守卫中使用store会报错
   setupStore(app);
   app.use(router);
@@ -21,5 +24,5 @@ getPlatformConfig(app).then(async config => {
   //   .use(Table)
   //   .use(PureDescriptions)
   //   .use(useEcharts);
-  app.mount("#app");
+  app.mount('#app');
 });

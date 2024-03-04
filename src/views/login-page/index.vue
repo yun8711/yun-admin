@@ -2,7 +2,7 @@
   <div>
     <div class="login-box">
       <div class="login-box__logo">
-        <img class="login-box__logo-icon" src="@/assets/images/logo.svg" alt="" />
+        <div class="i-fill:logo login-box__logo-icon"></div>
         <h2 class="login-box__logo-text">{{ title }}</h2>
       </div>
       <el-form
@@ -15,10 +15,11 @@
         :rules="loginRules"
       >
         <el-form-item label="" prop="username">
-          <el-input v-model="loginForm.username" placeholder="用户名：admin / user">
-            <template #prefix>
-              <div class="i-ep:user"></div>
-            </template>
+          <el-input
+            v-model="loginForm.username"
+            placeholder="用户名：admin / user"
+            :prefix-icon="useIcon('i-ep:user')"
+          >
           </el-input>
         </el-form-item>
         <el-form-item label="">
@@ -28,23 +29,26 @@
             placeholder="密码：123456"
             show-password
             autocomplete="new-password"
+            :prefix-icon="useIcon('i-ep:lock')"
           >
-            <template #prefix>
-              <div class="i-ep:lock"></div>
-            </template>
           </el-input>
         </el-form-item>
       </el-form>
       <div class="login-btn">
-        <el-button :icon="CircleClose" round size="large" @click="resetForm(loginFormRef)">
+        <el-button
+          round
+          size="large"
+          :icon="useIcon('i-ep:circle-close')"
+          @click="resetForm(loginFormRef)"
+        >
           重置
         </el-button>
         <el-button
-          :icon="UserFilled"
           round
           size="large"
           type="primary"
           :loading="loading"
+          :icon="useIcon('i-ep:user-filled')"
           @click="login(loginFormRef)"
         >
           登录
@@ -55,25 +59,24 @@
 </template>
 
 <script setup lang="ts" name="LoginPage">
-import { CircleClose, UserFilled } from "@element-plus/icons-vue";
-import type { ElForm } from "element-plus";
-import { getConfig } from "@/config";
-const router = useRouter();
+import { useIcon } from '@/hooks';
+import type { ElForm } from 'element-plus';
+import { getConfig } from '@/config';
 
-const title = ref("Yun Admin");
+const router = useRouter();
 const config = getConfig();
-title.value = config.Title;
+const title = ref(config.Title);
 
 type FormInstance = InstanceType<typeof ElForm>;
 const loading = ref(false);
 const loginForm = reactive({
-  username: "",
-  password: "",
+  username: 'admin',
+  password: '123456',
 });
 const loginFormRef = ref<FormInstance>();
 const loginRules = reactive({
-  username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-  password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
 });
 
 // resetForm
@@ -88,11 +91,11 @@ const login = (formEl: FormInstance | undefined) => {
   formEl.validate(async valid => {
     if (!valid) return;
     loading.value = true;
-    console.log("登录");
+    console.log('登录');
 
     setTimeout(() => {
       loading.value = false;
-      router.push({ name: "HomePage" });
+      router.push({ name: 'HomePage' });
     }, 1000);
     // try {
     //   // 1.执行登录接口

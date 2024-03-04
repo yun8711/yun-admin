@@ -1,14 +1,14 @@
 <template>
   <div>首页</div>
   <div text-center font-sans p4>
-    <div logo></div>
-    <div text-green5 text-lg>Hello UnoCSS + Vue</div>
-    <div text-blue text-lg>Hello UnoCSS + Vue</div>
-    <div i-custom-card></div>
-    <div i-custom-folder></div>
-    <div i-custom-project_manage size-20></div>
+    <div class="i-fill:logo size-300"></div>
+    <!--<div class="i-ep:user size-300"></div>-->
+    <div class="i-ep:reading size-300"></div>
+    <div text-green5 text-20>Hello UnoCSS + Vue</div>
+    <div text-blue text-30>Hello UnoCSS + Vue</div>
+    <div class="i-icon:card size-16"></div>
     <!-- @unocss-skip-start -->
-    <div class="bg-[url(../src/logo.svg)] bg-[url(/project_manage.svg)]"></div>
+    <!--<div class="bg-[url(/assets/svg/fill/logo.svg)] bg-[url(/project_manage.svg)]"></div>-->
     <!-- @unocss-skip-end -->
     <el-button type="primary">测试</el-button>
   </div>
