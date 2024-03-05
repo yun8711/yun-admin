@@ -46,7 +46,8 @@
       "vite/client",
       "element-plus/global",
       "unplugin-icons/types/vue",
-      "src/components/**/*.ts"
+      "src/components/**/*.ts",
+      "types/*.d.ts"
       //      "@pureadmin/table/volar",
       //      "@pureadmin/descriptions/volar"
     ]
