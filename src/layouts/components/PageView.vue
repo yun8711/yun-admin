@@ -1,7 +1,7 @@
 <template>
   <div class="page-view">
     <el-scrollbar always>
-      <Breadcrumb></Breadcrumb>
+      <!--<Breadcrumb></Breadcrumb>-->
       <router-view></router-view>
     </el-scrollbar>
   </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import Breadcrumb from "@/layouts/components/Breadcrumb.vue";
+import Breadcrumb from '@/layouts/components/Breadcrumb.vue';
 </script>
 
 <style scoped>

@@ -2,11 +2,11 @@
  * @description 环境变量对象
  */
 declare interface ViteEnv {
-  VITE_USER_NODE_ENV: "development" | "production" | "test";
+  VITE_USER_NODE_ENV: 'development' | 'production' | 'test';
   VITE_GLOB_APP_TITLE: string; // 标题
   VITE_PORT: number; // 前端本地项目端口
   VITE_REPORT: boolean; // 是否开启构建报告
-  VITE_ROUTER_MODE: "hash" | "history"; // 路由模式
+  VITE_ROUTER_MODE: 'hash' | 'history'; // 路由模式
   // VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean; // 是否删除原始文件
   VITE_DROP_CONSOLE: boolean; // 是否删除 console
   // VITE_PWA: boolean; // 是否开启 PWA
@@ -33,26 +33,4 @@ declare const __APP_INFO__: {
  */
 interface PlatformConfigs {
   Title?: string;
-}
-
-/* Menu */
-declare namespace Menu {
-  interface MenuOptions {
-    path: string;
-    name: string;
-    component?: string | (() => Promise<unknown>);
-    redirect?: string;
-    meta: MetaProps;
-    children?: MenuOptions[];
-  }
-  interface MetaProps {
-    icon: string;
-    title: string;
-    activeMenu?: string;
-    isLink?: string;
-    isHide: boolean;
-    isFull: boolean;
-    isAffix: boolean;
-    isKeepAlive: boolean;
-  }
 }
