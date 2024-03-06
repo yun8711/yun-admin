@@ -7,16 +7,16 @@ import type { Component, HTMLAttributes } from 'vue';
  * @param attrs - 图标元素附加属性
  * @returns Component - 图标组件
  */
-export function useIcon(
-  icon: string,
-  classes?: string | string[],
-  attrs?: HTMLAttributes
-): Component {
-  const classArr = Array.isArray(classes) ? classes : [classes];
+export function useIcon(icon: string, classes?: string, attrs?: HTMLAttributes): Component {
+  let classArr: string[] = [];
+  if (classes) {
+    classArr = classes?.includes(',') ? classes.split(',') : [classes];
+  }
+
+  classArr.unshift(icon);
   if (!icon.includes(':')) {
     classArr.unshift('iconfont');
   }
-  classArr.push(icon);
   if (attrs?.class) {
     classArr.push(attrs.class);
   }
