@@ -1,16 +1,20 @@
 <template>
   <template v-for="subItem in menuList" :key="subItem.path">
     <el-sub-menu v-if="subItem.children?.length" :index="subItem.path">
+      <el-icon size="14">
+        <component :is="useIcon(subItem.meta.icon)" v-if="subItem.meta.icon"></component>
+      </el-icon>
       <template #title>
-        <component :is="useIcon(subItem.meta.icon, 'mr-6')" v-if="subItem.meta.icon"></component>
-        <span class="sle">{{ subItem.meta.title }}</span>
+        <span class="text-12" :class="{ 'ml-6': !isCollapse }">{{ subItem.meta.title }}</span>
       </template>
       <SubMenu :menu-list="subItem.children"></SubMenu>
     </el-sub-menu>
     <el-menu-item v-else :route="subItem" :index="subItem.path" @click="handleClickMenu(subItem)">
+      <el-icon size="14">
+        <component :is="useIcon(subItem.meta.icon)" v-if="subItem.meta.icon"></component>
+      </el-icon>
       <template #title>
-        <component :is="useIcon(subItem.meta.icon, 'mr-6')" v-if="subItem.meta.icon"></component>
-        <span class="sle">{{ subItem.meta.title }}</span>
+        <span class="text-12" :class="{ 'ml-6': !isCollapse }">{{ subItem.meta.title }}</span>
       </template>
     </el-menu-item>
   </template>
@@ -19,70 +23,19 @@
 <script setup lang="ts">
 import { useIcon } from '@/hooks';
 import { useRouter } from 'vue-router';
-
+const router = useRouter();
+import { useGlobalStore } from '@/stores/modules/global';
+const globalStore = useGlobalStore();
 defineProps<{ menuList: Menu.MenuOptions[] }>();
 
-const router = useRouter();
+const isCollapse = computed(() => {
+  return globalStore.isCollapse;
+});
+
 const handleClickMenu = (subItem: Menu.MenuOptions) => {
   if (subItem.meta.isLink) return window.open(subItem.meta.isLink, '_blank');
   router.push(subItem.path);
 };
 </script>
 
-<style lang="scss">
-//.el-sub-menu .el-sub-menu__title:hover {
-//  color: var(--el-menu-hover-text-color) !important;
-//  background-color: transparent !important;
-//}
-//
-//.el-menu--collapse {
-//  .is-active {
-//    .el-sub-menu__title {
-//      color: #fff !important;
-//      background-color: var(--el-color-primary) !important;
-//    }
-//  }
-//}
-//
-//.el-menu-item {
-//  &:hover {
-//    color: var(--el-menu-hover-text-color);
-//  }
-//
-//  &.is-active {
-//    color: var(--el-menu-active-color) !important;
-//    background-color: var(--el-menu-active-bg-color) !important;
-//
-//    &::before {
-//      position: absolute;
-//      top: 0;
-//      bottom: 0;
-//      width: 4px;
-//      content: "";
-//      background-color: var(--el-color-primary);
-//    }
-//  }
-//}
-//
-//.vertical,
-//.classic,
-//.transverse {
-//  .el-menu-item {
-//    &.is-active {
-//      &::before {
-//        left: 0;
-//      }
-//    }
-//  }
-//}
-//
-//.columns {
-//  .el-menu-item {
-//    &.is-active {
-//      &::before {
-//        right: 0;
-//      }
-//    }
-//  }
-//}
-</style>
+<style lang="scss"></style>

@@ -1,12 +1,10 @@
 <template>
   <el-container class="mixed-layout">
-    <el-header height="50px">
+    <el-header height="50px" class="z-10">
       <Navbar></Navbar>
     </el-header>
     <el-container class="mixed-layout__container">
-      <el-aside width="200px">
-        <SidebarVertical></SidebarVertical>
-      </el-aside>
+      <SidebarVertical></SidebarVertical>
       <el-main>
         <PageView></PageView>
       </el-main>
@@ -15,10 +13,10 @@
 </template>
 
 <script setup lang="ts" name="MixedLayout">
-import PageView from "@/layouts/components/PageView.vue";
-import Navbar from "../components/Navbar.vue";
-import SidebarVertical from "@/layouts/components/sidebar/vertical.vue";
-import Breadcrumb from "../components/Breadcrumb.vue";
+import PageView from '../components/PageView.vue';
+import Navbar from '../components/navbar/index.vue';
+import SidebarVertical from '../components/sidebar/vertical.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
 </script>
 
 <style scoped lang="scss">

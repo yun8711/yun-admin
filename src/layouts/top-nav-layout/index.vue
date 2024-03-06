@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts" name="TopNavLayout">
-import Navbar from "../components/Navbar.vue";
-import PageView from "../components/PageView.vue";
+import Navbar from '../components/navbar/index.vue';
+import PageView from '../components/PageView.vue';
 </script>
 
 <style lang="scss" scoped>

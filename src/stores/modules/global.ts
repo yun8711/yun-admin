@@ -1,12 +1,11 @@
-import { store } from 'src/stores';
-
 export const useGlobalStore = defineStore({
   id: 'global',
   state: () => ({
-    count: 0,
+    isCollapse: false,
   }),
+  actions: {
+    toggleCollapse() {
+      this.isCollapse = !this.isCollapse;
+    },
+  },
 });
-
-export function useGlobalStoreHook() {
-  return useGlobalStore(store);
-}
