@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import Breadcrumb from '@/layouts/components/Breadcrumb.vue';
+import Breadcrumb from '@/layouts/components/breadcrumb.vue';
 </script>
 
 <style scoped>

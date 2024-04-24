@@ -9,9 +9,9 @@
   </el-container>
 </template>
 
-<script setup lang="ts" name="TopNavLayout">
+<script setup lang="ts" name="LayoutTopNav">
 import Navbar from '../components/navbar/index.vue';
-import PageView from '../components/PageView.vue';
+import PageView from '../components/page-view.vue';
 </script>
 
 <style lang="scss" scoped>

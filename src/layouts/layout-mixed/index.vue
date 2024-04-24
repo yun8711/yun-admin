@@ -12,11 +12,11 @@
   </el-container>
 </template>
 
-<script setup lang="ts" name="MixedLayout">
-import PageView from '../components/PageView.vue';
+<script setup lang="ts" name="LayoutMixed">
+import PageView from '../components/page-view.vue';
 import Navbar from '../components/navbar/index.vue';
 import SidebarVertical from '../components/sidebar/vertical.vue';
-import Breadcrumb from '../components/Breadcrumb.vue';
+import Breadcrumb from '../components/breadcrumb.vue';
 </script>
 
 <style scoped lang="scss">

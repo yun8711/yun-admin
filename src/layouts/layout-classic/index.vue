@@ -9,9 +9,9 @@
   </el-container>
 </template>
 
-<script setup lang="ts" name="ClassicLayout">
-import PageView from "../components/PageView.vue";
-import SidebarVertical from "@/layouts/components/sidebar/vertical.vue";
+<script setup lang="ts" name="LayoutClassic">
+import PageView from '../components/page-view.vue';
+import SidebarVertical from '@/layouts/components/sidebar/vertical.vue';
 </script>
 
 <style scoped lang="scss">
