@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { setupStore } from '@/stores';
-import { getPlatformConfig } from './config';
+import { getPlatformConfig } from './utils/config';
 import App from './App.vue';
 import router from './router';
 import './styles/index.scss';
