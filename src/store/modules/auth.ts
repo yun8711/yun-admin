@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { store } from '@/store';
 
 export const useAuthStore = defineStore({
   id: 'auth',
@@ -9,6 +10,10 @@ export const useAuthStore = defineStore({
     // dynamicRoutes: [],
     // 菜单列表，经静态路由和动态路由处理后的菜单列表
     menuList: [],
+
+    userInfo: {
+      username: '',
+    },
   }),
   getters: {
     // 获取有权限的路由列表
@@ -23,3 +28,7 @@ export const useAuthStore = defineStore({
     },
   },
 });
+
+export function useAuthStoreHook() {
+  return useAuthStore(store);
+}

@@ -24,7 +24,7 @@
 import { useIcon } from '@/hooks';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-import { useGlobalStore } from '@/stores/modules/global';
+import { useGlobalStore } from '@/store/modules/global';
 const globalStore = useGlobalStore();
 defineProps<{ menuList: Menu.MenuOptions[] }>();
 

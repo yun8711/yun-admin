@@ -15,8 +15,8 @@
 
 <script setup lang="ts" name="SidebarVertical">
 import SubMenu from '@/layouts/components/sidebar/sub-menu.vue';
-import { useAuthStore } from '@/stores/modules/auth';
-import { useGlobalStore } from '@/stores/modules/global';
+import { useAuthStore } from '@/store/modules/auth';
+import { useGlobalStore } from '@/store/modules/global';
 const route = useRoute();
 const globalStore = useGlobalStore();
 const authStore = useAuthStore();

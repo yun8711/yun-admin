@@ -1,6 +1,6 @@
 import NProgress from '@/utils/nprogress';
 import { initDynamicRouter } from '@/router/dynamic-routes';
-import { useAuthStore } from '@/stores/modules/auth';
+import { useAuthStore } from '@/store/modules/auth';
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import { rootRoute } from './static-routes';
 

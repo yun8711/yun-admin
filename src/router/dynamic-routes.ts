@@ -1,5 +1,5 @@
 import router from '@/router';
-import { useAuthStore } from '@/stores/modules/auth';
+import { useAuthStore } from '@/store/modules/auth';
 import { getDynamicRoutesApi } from '@/api/global';
 import type { RouteRecordRaw } from 'vue-router';
 import type { DynamicRouteItemType, RouteItemType } from '../../types/router';

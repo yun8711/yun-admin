@@ -1,3 +1,5 @@
+import { store } from '@/store';
+
 export const useGlobalStore = defineStore({
   id: 'global',
   state: () => ({
@@ -9,3 +11,7 @@ export const useGlobalStore = defineStore({
     },
   },
 });
+
+export function useGlobalStoreHook() {
+  return useGlobalStore(store);
+}

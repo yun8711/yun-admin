@@ -7,6 +7,7 @@ export default defineConfig({
   shortcuts: [
     // { logo: "i-ep:chrome-filled w-6em h-6em transform transition-800 bg-green border-1" },
     // { page: "p-16" },
+    { 'box-center': 'flex items-center justify-center' },
   ],
   rules: [
     // 字号
