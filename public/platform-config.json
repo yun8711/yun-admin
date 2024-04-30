@@ -1,5 +1,12 @@
 {
-  "Version": "0.0.1",
-  "Title": "Yun Admin",
-  "Layout": "mixed"
+  "version": "0.0.1",
+  "title": "Yun Admin",
+  "layout": "mixed",
+  "header": {
+    "height": "50px"
+  },
+  "sidebar": {
+    "collapseWidth": "54px",
+    "expandWidth": "210px"
+  }
 }

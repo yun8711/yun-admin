@@ -14,7 +14,17 @@ export const rootRoute: RouteItemType[] = [
         meta: {
           title: '首页',
           icon: 'i-fill:folder',
-          activePath: '/home',
+          // activePath: '/home',
+        },
+      },
+      {
+        path: '/about',
+        name: 'AboutPage',
+        component: () => import('@/views/about-page/index.vue'),
+        meta: {
+          title: '关于',
+          icon: 'i-fill:folder',
+          // activePath: '/home',
         },
       },
     ],

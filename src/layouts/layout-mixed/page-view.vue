@@ -21,6 +21,6 @@ import Breadcrumb from '@/layouts/components/breadcrumb.vue';
 .page-view {
   position: relative;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 </style>

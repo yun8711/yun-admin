@@ -41,8 +41,9 @@
 </template>
 
 <script setup lang="ts" name="UserPopover">
-import { useAuthStoreHook } from '@/store/entry';
-const { userInfo } = useAuthStoreHook();
+import { useAuthStoreHook } from '@/store/modules/auth';
+
+const userInfo = useAuthStoreHook().userInfo;
 
 const popperStyle = {
   padding: 0,

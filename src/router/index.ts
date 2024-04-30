@@ -1,6 +1,6 @@
 import NProgress from '@/utils/nprogress';
 import { initDynamicRouter } from '@/router/dynamic-routes';
-import { useAuthStore } from '@/store/modules/auth';
+import { useAuthStoreHook } from '@/store/modules/auth';
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import { rootRoute } from './static-routes';
 
@@ -15,7 +15,6 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to: ToRouteType, _from, next) => {
-  const authStore = useAuthStore();
   // if (to.meta?.keepAlive) {
   //   handleAliveRoute(to, "add");
   //   // 页面整体刷新和点击标签页刷新
@@ -46,7 +45,7 @@ router.beforeEach(async (to: ToRouteType, _from, next) => {
   // if (!userStore.token) return next({ path: LOGIN_URL, replace: true });
 
   // 6.如果没有菜单列表，就重新请求菜单列表并添加动态路由
-  if (!authStore.menuList.length) {
+  if (!useAuthStoreHook().menuList.length) {
     await initDynamicRouter();
     return next({ ...to, replace: true });
   }

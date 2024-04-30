@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts" name="AboutPage">
-import { vElementSize } from "@vueuse/components";
+import { vElementSize } from '@vueuse/components';
 const { pkg, lastBuildTime } = __APP_INFO__;
 const { dependencies, devDependencies, version } = pkg;
 

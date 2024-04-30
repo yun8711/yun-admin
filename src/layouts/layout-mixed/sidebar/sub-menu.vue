@@ -24,12 +24,11 @@
 import { useIcon } from '@/hooks';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-import { useGlobalStore } from '@/store/modules/global';
-const globalStore = useGlobalStore();
+import { useGlobalStoreHook } from '@/store/modules/global';
 defineProps<{ menuList: Menu.MenuOptions[] }>();
 
 const isCollapse = computed(() => {
-  return globalStore.isCollapse;
+  return useGlobalStoreHook().sidebar.status === 'collapsed';
 });
 
 const handleClickMenu = (subItem: Menu.MenuOptions) => {

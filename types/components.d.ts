@@ -29,6 +29,7 @@ declare module 'vue' {
     ElSpace: (typeof import('element-plus/es'))['ElSpace'];
     ElSubMenu: (typeof import('element-plus/es'))['ElSubMenu'];
     ElTag: (typeof import('element-plus/es'))['ElTag'];
+    ElTooltip: (typeof import('element-plus/es'))['ElTooltip'];
     RouterLink: (typeof import('vue-router'))['RouterLink'];
     RouterView: (typeof import('vue-router'))['RouterView'];
     YText: (typeof import('./../src/components/y-text/index.vue'))['default'];

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="login-box">
+    <div class="login-box" @keydown.enter="login(loginFormRef)">
       <div class="login-box__logo">
         <div class="i-fill:logo login-box__logo-icon"></div>
         <h2 class="login-box__logo-text">{{ title }}</h2>
@@ -19,6 +19,7 @@
             v-model="loginForm.username"
             placeholder="用户名：admin / user"
             :prefix-icon="useIcon('i-ep:user')"
+            autofocus
           >
           </el-input>
         </el-form-item>
@@ -59,9 +60,10 @@
 </template>
 
 <script setup lang="ts" name="LoginPage">
+import { useAuthStoreHook } from '@/store/modules/auth';
 import { useIcon } from '@/hooks';
 import type { ElForm } from 'element-plus';
-import { getConfig } from '@/config';
+import { getConfig } from '@/utils/config';
 
 const router = useRouter();
 const config = getConfig();
@@ -95,6 +97,7 @@ const login = (formEl: FormInstance | undefined) => {
 
     setTimeout(() => {
       loading.value = false;
+      useAuthStoreHook().userInfo = { username: loginForm.username };
       router.push({ name: 'HomePage' });
     }, 1000);
     // try {
@@ -168,7 +171,7 @@ const login = (formEl: FormInstance | undefined) => {
       margin: 0;
       font-size: 42px;
       font-weight: bold;
-      color: #34495e;
+      color: var(--primary-color);
       white-space: nowrap;
     }
   }
