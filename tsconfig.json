@@ -31,7 +31,7 @@
     // 解析模块的基准路径
     "baseUrl": ".",
     // 是否允许编译javascript文件
-    "allowJs": false,
+    "allowJs": true,
     // 是否允许导入json文件，按实际对象推断出类型
     "resolveJsonModule": true,
     // 要包含的库文件

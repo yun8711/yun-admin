@@ -5,7 +5,7 @@
         <component :is="useIcon(subItem.meta.icon)" v-if="subItem.meta.icon"></component>
       </el-icon>
       <template #title>
-        <span class="text-12" :class="{ 'ml-6': !isCollapse }">{{ subItem.meta.title }}</span>
+        <span class="text-12" :class="{ 'ml-6': !isCollapse }">{{ subItem.meta?.title }}</span>
       </template>
       <SubMenu :menu-list="subItem.children"></SubMenu>
     </el-sub-menu>

@@ -7,3 +7,7 @@ export type globalType = {
     height: number;
   };
 };
+
+export type permissionType = {
+  shortcutList: Array<any>;
+};

@@ -14,7 +14,8 @@ export const rootRoute: RouteItemType[] = [
         meta: {
           title: '首页',
           icon: 'i-fill:folder',
-          // activePath: '/home',
+          keepAlive: true, // 是否缓存
+          affix: true, // 是否固定标签
         },
       },
       {
@@ -27,6 +28,15 @@ export const rootRoute: RouteItemType[] = [
           // activePath: '/home',
         },
       },
+      {
+        path: '/test',
+        name: 'TestPage',
+        component: () => import('@/views/test-page/index.vue'),
+        meta: {
+          title: '测试',
+          icon: 'i-fill:folder',
+        },
+      },
     ],
   },
   {
@@ -35,6 +45,16 @@ export const rootRoute: RouteItemType[] = [
     component: () => import('@/views/login-page/index.vue'),
     meta: {
       title: '登录',
+      hideMenu: true,
+    },
+  },
+  // 重定向页面
+  {
+    path: '/redirect/:path(.*)',
+    name: 'Redirect',
+    component: () => import('@/views/redirect-page.vue'),
+    meta: {
+      title: '重定向',
       hideMenu: true,
     },
   },

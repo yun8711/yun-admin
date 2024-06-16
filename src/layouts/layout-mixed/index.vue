@@ -3,10 +3,11 @@
     ref="el"
     class="mixed-layout"
     :style="{
-      '--sidebar-width': isCollapse ? collapseWidth : expandWidth,
-      '--collapse-width': collapseWidth,
-      '--expand-width': expandWidth,
-      '--header-height': headerHeight,
+      '--sidebar-width': isCollapse ? collapseWidth + 'px' : expandWidth + 'px',
+      '--collapse-width': collapseWidth + 'px',
+      '--expand-width': expandWidth + 'px',
+      '--header-height': headerHeight + 'px',
+      '--shortcut-nav-height': shortcutNav.show ? shortcutNav.height + 'px' : '0',
     }"
   >
     <div class="layout-head">
@@ -15,6 +16,7 @@
     <div class="layout-container">
       <Sidebar></Sidebar>
       <div class="layout-main">
+        <ShortcutNav></ShortcutNav>
         <PageView></PageView>
       </div>
     </div>
@@ -26,11 +28,13 @@ import { getConfig } from '@/utils/config';
 import Navbar from './navbar/index.vue';
 import PageView from './page-view.vue';
 import Sidebar from './sidebar/sidebar.vue';
+import ShortcutNav from './shortcut-nav/index.vue';
 import { useGlobalStoreHook } from '@/store/modules/global';
 import { useResizeObserver } from '@vueuse/core';
 
 const { collapseWidth, expandWidth } = getConfig('sidebar');
 const headerHeight = getConfig('header.height');
+const shortcutNav = getConfig('shortcutNav');
 const isCollapse = computed(() => {
   return useGlobalStoreHook().sidebar.status === 'collapsed';
 });
@@ -72,7 +76,10 @@ useResizeObserver(el, entries => {
 
     .layout-main {
       position: relative;
+      box-sizing: border-box;
+      width: 100%;
       height: 100%;
+      padding-top: var(--shortcut-nav-height);
       padding-left: var(--sidebar-width);
       overflow-x: hidden;
     }

@@ -1,7 +1,12 @@
 <template>
   <div class="layout-sidebar">
     <el-scrollbar class="flex-1">
-      <el-menu :collapse="isCollapse" :collapse-transition="false" :default-active="activeMenu">
+      <el-menu
+        :collapse="isCollapse"
+        :collapse-transition="false"
+        :default-active="activePath"
+        :style="{ '--el-menu-base-level-padding': menuItemPadding + 'px' }"
+      >
         <SubMenu :menu-list="menuList"></SubMenu>
       </el-menu>
     </el-scrollbar>
@@ -17,13 +22,16 @@
 </template>
 
 <script setup lang="ts" name="Sidebar">
+import { usePermissionStoreHook } from '@/store/modules/permission';
 import SubMenu from './sub-menu.vue';
-import { useAuthStoreHook } from '@/store/modules/auth';
 import { useGlobalStoreHook } from '@/store/modules/global';
+import { getConfig } from '@/utils/config';
 const route = useRoute();
-const menuList = shallowRef(useAuthStoreHook().menuList);
+const menuList = shallowRef(usePermissionStoreHook().menuList);
 
-const activeMenu = ref<string>(route.meta.activePath ? route.meta.activePath : route.path);
+const activePath = computed(() => {
+  return route.meta?.activePath ?? route.path;
+});
 
 const isCollapse = computed(() => {
   return useGlobalStoreHook().sidebar.status === 'collapsed';
@@ -31,6 +39,9 @@ const isCollapse = computed(() => {
 const triggerCollapse = () => {
   useGlobalStoreHook().setSidebarStatus(isCollapse.value ? 'expanded' : 'collapsed');
 };
+
+// 菜单项左右内边距
+const menuItemPadding = (getConfig().sidebar.collapseWidth - 24) / 2;
 </script>
 
 <style scoped lang="scss">

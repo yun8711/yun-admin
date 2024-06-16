@@ -13,7 +13,7 @@ declare global {
  */
 interface RouteItemType {
   path: string;
-  name?: string;
+  name: string;
   redirect?: string;
   component?: RouteComponent;
   meta?: RouteMetaType;
@@ -41,6 +41,8 @@ interface RouteMetaType {
   parentName?: string;
   /** 菜单升序排序，值越高排的越后,默认值为0，`可选` */
   rank?: number;
+  /** 是否固定标签（默认`false`）`可选` */
+  affix?: boolean;
 }
 
 // 接口返回的动态路由类型

@@ -3,10 +3,14 @@
   "title": "Yun Admin",
   "layout": "mixed",
   "header": {
-    "height": "50px"
+    "height": 50
   },
   "sidebar": {
-    "collapseWidth": "54px",
-    "expandWidth": "210px"
+    "collapseWidth": 54,
+    "expandWidth": 210
+  },
+  "shortcutNav": {
+    "show": true,
+    "height": 34
   }
 }

@@ -6,13 +6,11 @@ export const useGlobalStore = defineStore({
   state: (): globalType => ({
     sidebar: {
       status: 'expanded', // 侧边栏状态：expanded，collapsed,hidden
-      // collapse: false,
     },
     viewportSize: {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
     },
-    // isCollapse: false,
   }),
   actions: {
     setSidebarStatus(status: 'expanded' | 'collapsed' | 'hidden') {
