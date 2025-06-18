@@ -17,6 +17,7 @@
     "lint:eslint": "eslint \"src/**/*.{vue,js,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"**/*.{js,ts,json,tsx,css,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --fix \"**/*.{html,vue,css,scss}\"",
+    "lint:lint-staged": "lint-staged",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
