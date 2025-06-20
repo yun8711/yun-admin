@@ -10,25 +10,25 @@
 //  --el-border-radius-base: 0px;
 //}
 
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
   //主题色
   $colors:
     (
-      "primary": (
-        "base": #0064c8,
+      'primary': (
+        'base': #0064c8,
       ),
-      "success": (
-        "base": #32c832,
+      'success': (
+        'base': #32c832,
       ),
-      "warning": (
-        "base": #fac800,
+      'warning': (
+        'base': #fac800,
       ),
       //'danger': (
       //  'base': #f56c6c,
       //),
-      "error":
+      'error':
         (
-          "base": #d77a7a,
+          'base': #d77a7a,
         ),
       //'info': (
       //  'base': #909399,
@@ -38,40 +38,40 @@
   //文字颜色
   $text-color:
     (
-      "primary": #303133,
-      "regular": #606266,
-      "secondary": #909399,
-      "placeholder": #a8abb2,
-      "disabled": #c0c4cc
+      'primary': #303133,
+      'regular': #606266,
+      'secondary': #909399,
+      'placeholder': #a8abb2,
+      'disabled': #c0c4cc
     ),
 
   //边框颜色
   $border-color:
     (
-      "": #dcdfe6,
-      "light": #e4e7ed,
-      "lighter": #ebeef5,
-      "extra-light": #f2f6fc,
-      "dark": #d4d7de,
-      "darker": #cdd0d6
+      '': #dcdfe6,
+      'light': #e4e7ed,
+      'lighter': #ebeef5,
+      'extra-light': #f2f6fc,
+      'dark': #d4d7de,
+      'darker': #cdd0d6
     ),
 
   //填充颜色
   $fill-color:
     (
-      "": #f0f2f5,
-      "light": #f5f7fa,
-      "lighter": #fafafa,
-      "extra-light": #fafcff,
-      "dark": #ebedf0,
-      "darker": #e6e8eb,
-      "blank": #ffffff
+      '': #f0f2f5,
+      'light': #f5f7fa,
+      'lighter': #fafafa,
+      'extra-light': #fafcff,
+      'dark': #ebedf0,
+      'darker': #e6e8eb,
+      'blank': #ffffff
     ),
 
   //背景颜色
   //$bg-color: ("": #ffffff, "page": #f2f3f5, "overlay": #ffffff),
   //边框圆角
-  $border-radius: ("base": 1px, "small": 0, "round": 20px, "circle": 100%),
+  $border-radius: ('base': 1px, 'small': 0, 'round': 20px, 'circle': 100%),
   //阴影
   //$box-shadow:
   //  (

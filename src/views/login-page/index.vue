@@ -67,7 +67,7 @@ import { getConfig } from '@/utils/config';
 
 const router = useRouter();
 const config = getConfig();
-const title = ref(config.Title);
+const title = ref(config.title);
 
 type FormInstance = InstanceType<typeof ElForm>;
 const loading = ref(false);

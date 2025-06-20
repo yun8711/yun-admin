@@ -1,6 +1,10 @@
 <template>
   <div class="navbar box-border flex flex-items-center space-x-16">
-    <div class="navbar_logo px-20 box-border box-center">YUN ADMIN</div>
+    <div class="navbar_logo px-20 box-border box-center">
+      <!--      {{ title }}-->
+      <el-image style="width: 100px" :src="logoImg" fit="fill"></el-image>
+    </div>
+
     <div class="navbar_function flex-1"></div>
     <div class="i-icon:notice size-18 cursor-pointer"></div>
     <div class="i-icon:full-screen size-16 cursor-pointer" @click="toggle"></div>
@@ -15,6 +19,10 @@ import { useAuthStoreHook } from '@/store/modules/auth';
 import { useFullscreen } from '@vueuse/core';
 const { userInfo } = useAuthStoreHook();
 const { toggle } = useFullscreen();
+import { getConfig } from '@/utils/config';
+import logoImg from '@/assets/images/logo.png';
+const config = getConfig();
+const title = ref(config.title);
 </script>
 
 <style scoped lang="scss">

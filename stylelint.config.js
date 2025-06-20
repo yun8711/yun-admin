@@ -38,7 +38,7 @@ export default {
     'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted'],
+        ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted', ':deep'],
       },
     ],
     // 未知的at规则不报错

@@ -29,9 +29,18 @@ import { getConfig } from '@/utils/config';
 const route = useRoute();
 const menuList = shallowRef(usePermissionStoreHook().menuList);
 
-const activePath = computed(() => {
-  return route.meta?.activePath ?? route.path;
-});
+const activePath = ref('');
+
+watch(
+  () => route,
+  val => {
+    activePath.value = val.meta?.activePath ?? val.path;
+  },
+  {
+    immediate: true,
+    deep: true,
+  }
+);
 
 const isCollapse = computed(() => {
   return useGlobalStoreHook().sidebar.status === 'collapsed';

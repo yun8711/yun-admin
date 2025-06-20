@@ -17,13 +17,14 @@
       <Sidebar></Sidebar>
       <div class="layout-main">
         <ShortcutNav></ShortcutNav>
+        <!--<div>Height: {{ height }} Width: {{ width }} containerHeight:{{ containerHeight }}</div>-->
         <PageView></PageView>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="LayoutMixed">
 import { getConfig } from '@/utils/config';
 import Navbar from './navbar/index.vue';
 import PageView from './page-view.vue';
@@ -31,21 +32,57 @@ import Sidebar from './sidebar/sidebar.vue';
 import ShortcutNav from './shortcut-nav/index.vue';
 import { useGlobalStoreHook } from '@/store/modules/global';
 import { useResizeObserver } from '@vueuse/core';
+import { useElementSize } from '@vueuse/core';
 
 const { collapseWidth, expandWidth } = getConfig('sidebar');
-const headerHeight = getConfig('header.height');
+const headerHeight: number = getConfig('header.height');
 const shortcutNav = getConfig('shortcutNav');
-const isCollapse = computed(() => {
+const isCollapse: ComputedRef<boolean> = computed(() => {
   return useGlobalStoreHook().sidebar.status === 'collapsed';
 });
 
 // 容器尺寸变化监听
 const el = ref(null);
-useResizeObserver(el, entries => {
-  const entry = entries[0];
-  const { width, height } = entry.contentRect;
-  useGlobalStoreHook().setViewportSize({ width, height });
+const { width, height } = useElementSize(el);
+// console.log('elSize', width.value, height.value);
+// const elSize = ref({ width: 0, height: 0 });
+// useResizeObserver(el, entries => {
+//   const entry = entries[0];
+//   const { width, height } = entry.contentRect;
+//   elSize.value = { width, height };
+//   useGlobalStoreHook().setViewportSize({ width, height });
+// });
+
+// 向后代组件传递数据
+// 计算 containerHeight
+const containerHeight: ComputedRef<number> = computed(() => {
+  return height.value - headerHeight - (shortcutNav.show ? shortcutNav.height : 0);
 });
+// console.log('containerHeight', containerHeight.value);
+
+// export interface LayoutData {
+//   isCollapse: Ref<boolean>;
+//   collapseWidth: number;
+//   expandWidth: number;
+//   headerHeight: number;
+//   shortcutNavHeight: number;
+//   elSize: { width: number; height: number };
+//   containerHeight: ComputedRef<number>;
+// }
+
+// const layoutData = ref<LayoutData>({
+//   isCollapse,
+//   collapseWidth,
+//   expandWidth,
+//   headerHeight,
+//   shortcutNavHeight: shortcutNav.show ? shortcutNav.height : 0,
+//   elSize: {
+//     width: elSize.width.value,
+//     height: elSize.height.value,
+//   },
+//   containerHeight,
+// });
+provide('containerHeight', containerHeight);
 </script>
 
 <style scoped lang="scss">

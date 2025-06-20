@@ -29,11 +29,11 @@ export const rootRoute: RouteItemType[] = [
         },
       },
       {
-        path: '/test',
-        name: 'TestPage',
-        component: () => import('@/views/test-page/index.vue'),
+        path: '/error-info',
+        name: 'ErrorInfo',
+        component: () => import('@/views/error-info/index.vue'),
         meta: {
-          title: '测试',
+          title: '报错信息',
           icon: 'i-fill:folder',
         },
       },

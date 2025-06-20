@@ -45,7 +45,6 @@
 </template>
 
 <script setup lang="ts" name="ShortcutNav">
-import router from '@/router';
 import { usePermissionStoreHook } from '@/store/modules/permission';
 import {
   directive,
@@ -54,9 +53,9 @@ import {
   ContextmenuItem,
   ContextmenuDivider,
 } from 'v-contextmenu';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
-const route = useRoute();
+const router = useRouter();
 const isActive = computed(() => item => {
   return usePermissionStoreHook().activeView.name === item.name;
 });
@@ -87,18 +86,17 @@ const contextmenuRef = ref(null);
 const curView = ref({});
 // 点击标签页
 function handleClick(item) {
-  // console.log('handleClick', item.name);
-  router.push({ name: item.name });
+  router.push(item);
   contextmenuRef.value?.hide();
 }
 // 关闭标签页
 function handleClose(item) {
-  console.log('handleClose', item);
+  // console.log('handleClose', item);
   usePermissionStoreHook().viewOperate(item, 'delete');
 }
 // 右键打开菜单
 function handleContextmenu(event, item) {
-  console.log('handleContextmenu', item);
+  // console.log('handleContextmenu', item);
   curView.value = item;
   const { clientX, clientY } = event;
   nextTick(() => {
@@ -106,15 +104,19 @@ function handleContextmenu(event, item) {
   });
 }
 addEventListener('click', e => {
-  if (!e.target?.className.includes('shortcut-nav-item')) {
-    contextmenuRef.value?.hide();
+  try {
+    if (!e?.target?.className?.includes('shortcut-nav-item')) {
+      contextmenuRef.value?.hide();
+    }
+  } catch (error) {
+    // console.error('click error', error);
   }
 });
 const menuDisabled = computed(() => {
   const curIndex = usePermissionStoreHook().viewList.findIndex(
     item => item.name === curView.value.name
   );
-  console.log('menuDisabled', curIndex);
+  // console.log('menuDisabled', curIndex);
   return {
     closeCur: curView.value.meta?.affix,
     closeLeft: curIndex <= 0,
@@ -169,7 +171,7 @@ function closeAll() {
 
 // 重新加载当前标签页
 function reloadCur() {
-  console.log('reloadCur', curView.value?.path);
+  // console.log('reloadCur', curView.value?.path);
   usePermissionStoreHook().viewOperate(curView.value, 'refresh');
   router.push({
     name: 'Redirect',
@@ -184,6 +186,7 @@ function reloadCur() {
   position: absolute;
   top: 0;
   left: var(--sidebar-width);
+  box-sizing: border-box;
   width: 100%;
   height: var(--shortcut-nav-height);
   border-bottom: 1px solid #eee;
@@ -219,7 +222,7 @@ function reloadCur() {
         width: 100%;
         height: 2px;
         content: '';
-        background-color: var(--primary-color);
+        background-color: var(--color-primary);
       }
     }
   }
