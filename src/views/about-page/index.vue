@@ -43,9 +43,12 @@
             label-class-name="cursor-pointer underline underline-offset-2"
           >
             <template #label>
-              <div @click.stop="openTab(key)">
+              <el-link :href="`https://www.npmjs.com/package/${key}`" target="_blank">
                 {{ key }}
-              </div>
+              </el-link>
+              <!--<div @click.stop="openTab(key)">-->
+              <!--  {{ key }}-->
+              <!--</div>-->
             </template>
             <el-tag type="info">
               {{ value }}
@@ -65,9 +68,9 @@
             label-class-name="cursor-pointer underline underline-offset-2"
           >
             <template #label>
-              <div @click.stop="openTab(key)">
+              <el-link :href="`https://www.npmjs.com/package/${key}`" target="_blank">
                 {{ key }}
-              </div>
+              </el-link>
             </template>
             <el-tag type="info">
               {{ value }}
@@ -80,7 +83,7 @@
 </template>
 
 <script setup lang="ts" name="AboutPage">
-import { vElementSize } from "@vueuse/components";
+import { vElementSize } from '@vueuse/components';
 const { pkg, lastBuildTime } = __APP_INFO__;
 const { dependencies, devDependencies, version } = pkg;
 
@@ -95,10 +98,6 @@ const onResize = ({ width }) => {
   } else {
     column.value = 4;
   }
-};
-
-const openTab = async packageName => {
-  window.open(`https://www.npmjs.com/package/${packageName}`);
 };
 </script>
 

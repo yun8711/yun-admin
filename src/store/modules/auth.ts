@@ -6,10 +6,6 @@ export const useAuthStore = defineStore({
   state: () => ({
     // 当前页面的 router name，用来做按钮权限筛选
     routeName: '',
-    // 后端返回的动态路由，后端已经过滤了权限，前端用来addRoutes
-    // dynamicRoutes: [],
-    // 菜单列表，经静态路由和动态路由处理后的菜单列表
-    menuList: [],
 
     userInfo: {
       username: '',

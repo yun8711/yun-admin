@@ -8,6 +8,7 @@ import 'virtual:uno.css';
 // 导入字体图标库
 import '@/assets/iconfont/iconfont.css';
 import '@/assets/iconfont/iconfont.js';
+import 'v-contextmenu/dist/themes/default.css';
 const app = createApp(App);
 
 getPlatformConfig(app).then(async config => {

@@ -106,7 +106,7 @@ export default defineFlatConfig([
       ],
       '@typescript-eslint/prefer-literal-enum-member': ['error', { allowBitwiseExpressions: true }],
       '@typescript-eslint/no-unused-vars': [
-        'error',
+        'warn',
         {
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_',

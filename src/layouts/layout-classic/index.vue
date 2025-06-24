@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts" name="LayoutClassic">
-import PageView from '../components/page-view.vue';
-import SidebarVertical from '@/layouts/components/sidebar/vertical.vue';
+import PageView from '../layout-mixed/page-view.vue';
+import SidebarVertical from '@/layouts/layout-mixed/sidebar/sidebar.vue';
 </script>
 
 <style scoped lang="scss">

@@ -1,8 +1,11 @@
+import { getConfig } from '@/utils/config';
 import NProgress from '@/utils/nprogress';
 import { initDynamicRouter } from '@/router/dynamic-routes';
-import { useAuthStore } from '@/store/modules/auth';
+// import { useAuthStoreHook } from '@/store/modules/auth';
+import { usePermissionStoreHook } from '@/store/modules/permission';
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import { rootRoute } from './static-routes';
+import type { RouteItemType } from '../../types/router';
 
 /** 路由白名单 */
 const ROUTER_WHITE_LIST = ['/login'];
@@ -15,13 +18,15 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to: ToRouteType, _from, next) => {
-  const authStore = useAuthStore();
+  // console.log('to', to);
+  // console.log('_from', _from);
+  usePermissionStoreHook().viewOperate(to as RouteItemType, 'add');
   // if (to.meta?.keepAlive) {
-  //   handleAliveRoute(to, "add");
   //   // 页面整体刷新和点击标签页刷新
-  //   if (_from.name === undefined || _from.name === "Redirect") {
-  //     handleAliveRoute(to);
-  //   }
+  //   // if (_from.name === undefined || _from.name === 'Redirect') {
+  //   // if (_from.name === 'Redirect') {
+  //   usePermissionStoreHook().cacheOperate(to as RouteItemType);
+  //   // }
   // }
   // const userInfo = storageLocal().getItem<DataInfo<number>>(userKey);
 
@@ -29,8 +34,9 @@ router.beforeEach(async (to: ToRouteType, _from, next) => {
   NProgress.start();
 
   // 2.动态设置标题
-  const title = import.meta.env.VITE_GLOB_APP_TITLE;
-  document.title = to.meta.title ? `${to.meta.title} - ${title}` : title;
+  // const title = import.meta.env.VITE_GLOB_APP_TITLE;
+  const websiteTitle = getConfig('title');
+  document.title = to.meta.title ? `${to.meta.title} - ${websiteTitle}` : websiteTitle;
 
   // 3.判断是访问登陆页，有 Token 就在当前页面，没有 Token 重置路由到登陆页
   // if (to.path.toLocaleLowerCase() === LOGIN_URL) {
@@ -46,7 +52,7 @@ router.beforeEach(async (to: ToRouteType, _from, next) => {
   // if (!userStore.token) return next({ path: LOGIN_URL, replace: true });
 
   // 6.如果没有菜单列表，就重新请求菜单列表并添加动态路由
-  if (!authStore.menuList.length) {
+  if (!usePermissionStoreHook().menuList.length) {
     await initDynamicRouter();
     return next({ ...to, replace: true });
   }

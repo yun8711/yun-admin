@@ -1,13 +1,24 @@
 import { store } from '@/store';
+import type { globalType } from '../types';
 
 export const useGlobalStore = defineStore({
   id: 'global',
-  state: () => ({
-    isCollapse: false,
+  state: (): globalType => ({
+    sidebar: {
+      status: 'expanded', // 侧边栏状态：expanded，collapsed,hidden
+    },
+    viewportSize: {
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+    },
   }),
   actions: {
-    toggleCollapse() {
-      this.isCollapse = !this.isCollapse;
+    setSidebarStatus(status: 'expanded' | 'collapsed' | 'hidden') {
+      this.sidebar.status = status;
+    },
+    setViewportSize({ width, height }) {
+      if (width) this.viewportSize.width = width;
+      if (height) this.viewportSize.height = height;
     },
   },
 });

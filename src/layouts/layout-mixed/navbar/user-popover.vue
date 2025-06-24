@@ -28,7 +28,7 @@
       </div>
 
       <div class="user-popover__foot">
-        <el-button plain class="w-100%">退出登录</el-button>
+        <el-button plain class="w-100%" @click="logout">退出登录</el-button>
       </div>
     </div>
     <template #reference>
@@ -41,12 +41,20 @@
 </template>
 
 <script setup lang="ts" name="UserPopover">
-import { useAuthStoreHook } from '@/store/entry';
-const { userInfo } = useAuthStoreHook();
+import { useRouter } from 'vue-router';
+const router = useRouter();
+import { useAuthStoreHook } from '@/store/modules/auth';
+
+const userInfo = useAuthStoreHook().userInfo;
 
 const popperStyle = {
   padding: 0,
 };
+
+function logout() {
+  console.log('logout');
+  router.push('/login');
+}
 </script>
 
 <style scoped lang="scss">

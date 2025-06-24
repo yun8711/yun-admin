@@ -14,7 +14,7 @@ const LayoutComponents = {
   classic: LayoutClassic,
 };
 
-const layout: string = getConfig('Layout');
+const layout: string = getConfig('layout');
 </script>
 
 <style scoped lang="scss"></style>

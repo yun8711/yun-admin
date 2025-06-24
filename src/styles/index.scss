@@ -1,5 +1,6 @@
-@use "theme";
-@use "element-var";
-@use "element-plus/theme-chalk/src/index.scss" as *;
-@use "@unocss/reset/normalize.css";
-@use "reset";
+@use 'theme';
+@use 'element-var';
+@use 'element-plus/theme-chalk/src/index.scss' as *;
+@use '@unocss/reset/normalize.css';
+@use 'reset';
+@use 'transition';

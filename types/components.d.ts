@@ -33,5 +33,45 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     YText: typeof import('./../src/components/y-text/index.vue')['default']
+    AutoSearch: (typeof import('./../src/components/AutoSearch/index.vue'))['default'];
+    BaseLabel: (typeof import('@/components/BaseLabel/src/index.vue'))['default'];
+    BaseText: (typeof import('./../src/components/BaseText/index.vue'))['default'];
+    ConfirmPop: (typeof import('@/components/ConfirmPop/src/index.vue'))['default'];
+    ElAside: (typeof import('element-plus/es'))['ElAside'];
+    ElBacktop: (typeof import('element-plus/es'))['ElBacktop'];
+    ElButton: (typeof import('element-plus/es'))['ElButton'];
+    ElCard: (typeof import('element-plus/es'))['ElCard'];
+    ElConfigProvider: (typeof import('element-plus/es'))['ElConfigProvider'];
+    ElContainer: (typeof import('element-plus/es'))['ElContainer'];
+    ElDescriptions: (typeof import('element-plus/es'))['ElDescriptions'];
+    ElDescriptionsItem: (typeof import('element-plus/es'))['ElDescriptionsItem'];
+    ElForm: (typeof import('element-plus/es'))['ElForm'];
+    ElFormItem: (typeof import('element-plus/es'))['ElFormItem'];
+    ElHeader: (typeof import('element-plus/es'))['ElHeader'];
+    ElIcon: (typeof import('element-plus/es'))['ElIcon'];
+    ElImage: (typeof import('element-plus/es'))['ElImage'];
+    ElInput: (typeof import('element-plus/es'))['ElInput'];
+    ElLink: (typeof import('element-plus/es'))['ElLink'];
+    ElMain: (typeof import('element-plus/es'))['ElMain'];
+    ElMenu: (typeof import('element-plus/es'))['ElMenu'];
+    ElMenuItem: (typeof import('element-plus/es'))['ElMenuItem'];
+    ElOption: (typeof import('element-plus/es'))['ElOption'];
+    ElPagination: (typeof import('element-plus/es'))['ElPagination'];
+    ElPopover: (typeof import('element-plus/es'))['ElPopover'];
+    ElScrollbar: (typeof import('element-plus/es'))['ElScrollbar'];
+    ElSelect: (typeof import('element-plus/es'))['ElSelect'];
+    ElSpace: (typeof import('element-plus/es'))['ElSpace'];
+    ElSubMenu: (typeof import('element-plus/es'))['ElSubMenu'];
+    ElTable: (typeof import('element-plus/es'))['ElTable'];
+    ElTableColumn: (typeof import('element-plus/es'))['ElTableColumn'];
+    ElTag: (typeof import('element-plus/es'))['ElTag'];
+    ElTooltip: (typeof import('element-plus/es'))['ElTooltip'];
+    FuzzySearch: (typeof import('@/components/FuzzySearch/src/index.vue'))['default'];
+    PartTitle: (typeof import('@/components/PartTitle/src/index.vue'))['default'];
+    RouterLink: (typeof import('vue-router'))['RouterLink'];
+    RouterView: (typeof import('vue-router'))['RouterView'];
+    Src: (typeof import('./../src/components/ConfirmPop/src/index.vue'))['default'];
+    Wangditor: (typeof import('@/components/WangEditor/src/index.vue'))['default'];
+    YPagination: (typeof import('./../src/components/y-pagination/index.vue'))['default'];
   }
 }
