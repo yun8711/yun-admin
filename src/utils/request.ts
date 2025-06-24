@@ -1,11 +1,11 @@
 import { createAlova, type Method } from 'alova';
-import GlobalFetch from 'alova/GlobalFetch';
+import adapterFetch from 'alova/fetch';
 import VueHook from 'alova/vue';
 import { ElMessage } from 'element-plus';
 
 export const alovaInstance = createAlova({
-  requestAdapter: GlobalFetch(),
   baseURL: 'http://localhost:3000/monitor/api',
+  requestAdapter: adapterFetch(),
   timeout: 30000,
   statesHook: VueHook,
   // 设置全局的请求拦截器，与axios相似

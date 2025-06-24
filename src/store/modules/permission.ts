@@ -3,8 +3,7 @@ import type { RouteItemType } from '../../../types/router';
 import router from '@/router';
 // import type { permissionType } from '../types';
 
-export const usePermissionStore = defineStore({
-  id: 'shortcut',
+export const usePermissionStore = defineStore('shortcut', {
   state: () => ({
     // shortcutList: [],
     // 静态路由生成的菜单
@@ -30,7 +29,7 @@ export const usePermissionStore = defineStore({
       this.viewList = routes.filter(v => v.meta?.affix);
     },
     /** 访问历史页面操作 */
-    viewOperate(route: RouteItemType | RouteItemType[], operate = 'add') {
+    viewOperate(route: RouteItemType, operate = 'add') {
       const index = this.viewList.findIndex(v => v.name === route?.name);
       if (operate === 'add') {
         if ((!Array.isArray(route) && route?.name === 'Redirect') || route.path === '/redirect')

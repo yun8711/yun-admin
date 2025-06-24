@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
 import { store } from '@/store';
 
-export const useAuthStore = defineStore({
-  id: 'auth',
+export const useAuthStore = defineStore('auth', {
   state: () => ({
     // 当前页面的 router name，用来做按钮权限筛选
     routeName: '',

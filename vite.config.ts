@@ -64,12 +64,23 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         ],
         // 自动导入全局组件的位置
         dirs: ['src/components'],
+        // 添加命名转换规则
+        directoryAsNamespace: true, // 使用目录作为命名空间
+        globalNamespaces: ['global'], // 全局命名空间
       }),
       // 创建打包压缩配置
       // viteCompression(),
       // 打包分析工具
       visualizer(),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          // additionalData: `@use "~/styles/element/index.scss" as *;`,
+        },
+      },
+    },
     // 服务端渲染
     server: {
       port: viteEnv.VITE_PORT,

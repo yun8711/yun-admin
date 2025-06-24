@@ -1,8 +1,7 @@
 import { store } from '@/store';
 import type { globalType } from '../types';
 
-export const useGlobalStore = defineStore({
-  id: 'global',
+export const useGlobalStore = defineStore('global', {
   state: (): globalType => ({
     sidebar: {
       status: 'expanded', // 侧边栏状态：expanded，collapsed,hidden
